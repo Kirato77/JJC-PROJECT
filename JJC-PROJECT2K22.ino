@@ -1,4 +1,4 @@
-#include <PCM.h> // Nécéssite la bibliothèque PCM pour la voiceAlert
+#include <PCM.h> // Nécéssite la bibliothèque PCM pour le message d'alerte
 
 const int redLed = 12; // Définir le port/pin de la led rouge
 const int yellowLed = 13; // Définir le port/pin de la led jaune
@@ -39,9 +39,11 @@ void loop() { // Code effectué en boucle
       digitalWrite(greenLed, LOW); // Éteindre la led verte
       startPlayback(voiceAlert, sizeof(voiceAlert)); // Lancer le message d'alerte
       delay (4000); // Attendre la fin du message d'alerte
+       
+      // DECOMPTE DE 5 SECONDES
       int bip = 0; // Définir la valeur de "bip" à 0
       while (bip < 5) { // Répeter le {code} ci-dessous jusqu'à ce que la valeur de "bip" atteigne 5
-       tone(buzzer, 1000, 70); // Mise en route du buzzer à la fréquence 1000Hz pendant 0.7 sec
+       tone(buzzer, 1000, 70); // Mise en route du buzzer à la fréquence 1000Hz pendant 0.07 sec
        delay (1000); // Attendre 1 seconde
       bip++; // Ajouter 1 à la valeur de "bip"
       } 
